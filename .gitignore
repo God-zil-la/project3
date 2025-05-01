@@ -1,0 +1,86 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.DS_Store
+
+# Django
+*.log
+*.pot
+*.pyc
+db.sqlite3
+db.sqlite3-journal
+
+# Environments
+.env
+.venv/
+venv/
+env/
+ENV/
+*.env.*
+
+# VS Code
+.vscode/
+
+# Pytest / coverage
+.coverage
+htmlcov/
+.coverage.*
+
+# Migrations (optional, keep if working in team)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Media files (user uploads)
+media/
+user_backgrounds/
+
+# Staticfiles (if using collectstatic)
+# Ignore cache and compiled files but keep actual CSS
+planner/static/**/__pycache__/
+planner/static/**/*.pyc
+# Safe to ignore
+staticfiles/
+*.pyc
+__pycache__/
+.env
+# Ignore unwanted files in images, but keep image assets
+planner/static/images/**/__pycache__/
+planner/static/images/**/*.pyc
+media/
+
+
+# Heroku / Deployment
+*.tar.gz
+*.egg-info/
+*.egg
+*.bak
+*.orig
+*.swp
+
+# Node stuff (if using npm for validations)
+node_modules/
+package-lock.json
+
+# macOS + Windows artifacts
+.DS_Store
+Thumbs.db
+
+# Output / cache
+*.sqlite3
+
+# Ignore GCP or Google auth JSON
+*.json
+!*.example.json  # optional: allow template json files for documentation
+
+# Django
+*.pyc
+__pycache__/
+db.sqlite3
+
+# OS & Editor junk
+.DS_Store
+.env
+*.log

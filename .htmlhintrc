@@ -1,0 +1,16 @@
+{
+  "extends": ["development"],
+  "files": {
+    "include": ["event/templates/**/*.html"],
+    "exclude": ["event/templates/**/partials/*.html"]
+  },
+  "hints": {
+    "doctype-first": false,
+    "meta-charset": "error",
+    "meta-viewport": false,
+    "axe/structure": [
+      "default",
+      { "list": "off" }
+    ]
+  }
+}
