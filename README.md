@@ -598,3 +598,5 @@ Developed by Hussein Elali
 GitHub: @god-zil-la
 
 ✔️ Final deployment working: [https://event-plan.herokuapp.com](https://event-plan-10650f39d687.herokuapp.com/register/)
+
+# Commit 12 placeholder
