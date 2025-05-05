@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Planner</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css?v=6' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+</head>
+
+<body style="
+    background-image: url('{% if user.is_authenticated and user.profile.background_image %}{{ user.profile.background_image.url }}{% else %}{% static 'images/default-bg.jpg' %}{% endif %}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+">
+
+    <div class="wrapper">
+        <!-- Navigation -->
+        <div class="navbar">
+            <a href="{% url 'event_list' %}">All Events</a>
+            <a href="{% url 'event_create' %}">Create Event</a>
+
+            {% if user.is_authenticated %}
+            <a href="{% url 'upload_background' %}">Upload Background</a>
+            <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn">Logout</button>
+            </form>
+            {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </div>
+
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+
+        <!-- Main content -->
+        <main class="main">
+            {% block content %}{% endblock %}
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            © 2025 Event Planner. Developed By Mr.Husse
+        </footer>
+    </div>
+</body>
+
+</html>

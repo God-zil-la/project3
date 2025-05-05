@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Upload Background Image</h2>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if user.profile.background_image %}
+    <div class="current-preview">
+        <p>Current Background:</p>
+        <img id="preview-image" src="{{ user.profile.background_image.url }}" alt="Current background"
+            style="max-width: 100%; height: auto; border: 1px solid #ccc; margin-top: 10px;">
+    </div>
+    {% else %}
+    <p>No background image set yet.</p>
+    <img id="preview-image"
+        style="display: none; max-width: 100%; height: auto; border: 1px solid #ccc; margin-top: 10px;">
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data" class="upload-form" id="background-form">
+        {% csrf_token %}
+        <p>
+            <label for="id_background_image">Select Background Image:</label>
+            <input type="file" name="background_image" id="id_background_image" accept="image/jpeg,image/png" required>
+        </p>
+        <button type="submit" class="btn" id="upload-btn" disabled>Upload</button>
+    </form>
+
+    <p id="file-error" style="color: red; margin-top: 10px;"></p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const fileInput = document.querySelector('input[type="file"]');
+        const uploadBtn = document.getElementById("upload-btn");
+        const errorText = document.getElementById("file-error");
+        const previewImage = document.getElementById('preview-image');
+
+        const MAX_SIZE_MB = 5;
+        const ALLOWED_TYPES = ['image/jpeg', 'image/png'];
+
+        fileInput.addEventListener("change", function () {
+            const file = this.files[0];
+
+            if (!file) {
+                uploadBtn.disabled = true;
+                errorText.textContent = "";
+                return;
+            }
+
+            if (!ALLOWED_TYPES.includes(file.type)) {
+                errorText.textContent = "Only JPG or PNG images are allowed.";
+                uploadBtn.disabled = true;
+                this.value = '';
+                return;
+            }
+
+            if (file.size > MAX_SIZE_MB * 1024 * 1024) {
+                errorText.textContent = `Image must be under ${MAX_SIZE_MB}MB.`;
+                uploadBtn.disabled = true;
+                this.value = '';
+                return;
+            }
+
+            errorText.textContent = "";
+            uploadBtn.disabled = false;
+
+            // Live Preview
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                previewImage.style.display = 'block';
+                previewImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+    });
+</script>
+{% endblock %}

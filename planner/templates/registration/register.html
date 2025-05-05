@@ -1,0 +1,21 @@
+{% extends 'planner/base.html' %}
+{% block body_class %}first-page{% endblock %}
+
+{% block content %}
+
+<body class="register-body">
+  <div class="register-container">
+    <h1>Welcome to Event Planner</h1>
+    <p>Please register your account below.</p>
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Register</button>
+    </form>
+
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+  </div>
+</body>
+
+{% endblock %}

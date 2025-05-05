@@ -1,0 +1,400 @@
+/* ========================
+   RESET AND BASE LAYOUT
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========================
+   NAVBAR AND FOOTER
+========================= */
+.navbar, .footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.navbar a,
+.navbar form button.logout-button {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: black;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-block;
+}
+
+.navbar a:hover,
+.navbar form button.logout-button:hover,
+button:hover,
+.btn:hover,
+.confirm-delete-button:hover,
+.logout-button:hover {
+    background-color: #444;
+    text-decoration: underline;
+}
+
+/* ========================
+   HEADINGS & TEXT
+========================= */
+h1, h2, h3, p {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+}
+h1 { font-size: 3rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1rem; }
+p  { font-size: 1.5rem; }
+
+/* ========================
+   FORM ELEMENTS
+========================= */
+input, textarea, select, button {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+}
+
+button, .btn, .confirm-delete-button, .logout-button {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: auto;
+}
+
+.form-wrapper > form.event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    background-color: black;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.event-form .form-row {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: black;
+    margin-bottom: 1rem;
+}
+
+.event-form .form-row label {
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.event-form .form-row input,
+.event-form .form-row textarea,
+.event-form .form-row select {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+}
+
+.helptext {
+    font-size: 0.75rem;
+    color: #ccc;
+    text-align: center;
+    margin-top: 0.25rem;
+}
+
+/* ========================
+   CONTAINERS AND BOXES
+========================= */
+.container, .event-detail-box, .confirm-delete-box {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background-color: black;
+    color: white;
+}
+
+.event-detail-box-transparent {
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* ========================
+   UPLOAD BACKGROUND
+========================= */
+.form-container {
+    background: #f9f9f9;
+    padding: 0.5rem;
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.current-preview {
+    text-align: center;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.current-preview img {
+    width: 60px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #444;
+    max-width: 100%;
+}
+
+.current-preview a {
+    color: white !important;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto 1.5rem auto;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.upload-form input[type="file"],
+.upload-form button {
+    width: 90%;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #ccc;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.upload-form button {
+    margin-bottom: 1rem;
+}
+
+/* ========================
+   EVENT ITEM DISPLAY
+========================= */
+.event-item {
+    background-color: #444;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 95%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border: 2px solid #666;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.event-title,
+.event-datetime {
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.event-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.event-buttons .view-button,
+.event-buttons .sync-button {
+    flex: 1;
+    max-width: 200px;
+}
+
+.view-button,
+.sync-button {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    margin: 0.2rem 0;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-block;
+}
+
+.view-button:hover,
+.sync-button:hover {
+    background-color: #222;
+}
+
+.messages {
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.alert {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* ========================
+   RESPONSIVE NAVBAR
+========================= */
+@media (max-width: 400px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .navbar a,
+    .navbar form {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 0.25rem 0;
+    }
+
+    .navbar form button {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    form label,
+    form p,
+    form div,
+    a {
+        word-break: break-word;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+}
+
+/* ========================
+   CONTRAST LINKS
+========================= */
+.link-contrast:link,
+.link-contrast:visited,
+.link-contrast:hover,
+.link-contrast:active {
+    color: white !important;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+    color: white !important;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* ========================
+   FORCE LINKS TO LOOK LIKE BUTTONS
+========================= */
+a[href*="edit"],
+a[href*="delete"],
+a[href*="google_calendar"] {
+    display: inline-block;
+    background-color: black;
+    color: white !important;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    margin: 0.2rem 0.4rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none !important;
+}
+
+a[href*="edit"]:hover,
+a[href*="delete"]:hover,
+a[href*="google_calendar"]:hover {
+    background-color: #222;
+    text-decoration: underline !important;
+}

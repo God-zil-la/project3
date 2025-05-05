@@ -1,0 +1,31 @@
+{% extends 'planner/base.html' %}
+
+{% block title %}All Events{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h2>All Events</h2>
+
+<ul class="event-list">
+  {% for event in events %}
+  <li class="event-item">
+    <div class="event-title">{{ event.title }}</div>
+    <div class="event-datetime">{{ event.date }} at {{ event.time }}</div>
+    <a href="{% url 'event_detail' event.pk %}" class="view-button">View</a>
+    {% if user.is_authenticated %}
+    <a href="{% url 'google_calendar_init' %}" class="sync-button">Sync to Google Calendar</a>
+    {% endif %}
+  </li>
+  {% empty %}
+  <li class="event-item">No events yet.</li>
+  {% endfor %}
+</ul>
+
+{% else %}
+<h2>Please log in to view events</h2>
+<div class="auth-buttons">
+  <a href="{% url 'login' %}" class="view-button">Login</a>
+  <a href="{% url 'register' %}" class="view-button">Register</a>
+</div>
+{% endif %}
+{% endblock %}
