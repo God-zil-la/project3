@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="event-detail-box">
+  <h1>{{ event.title }}</h1>
+  <p>{{ event.description }}</p>
+  <p>Date: {{ event.date }}</p>
+  <p>Time: {{ event.time }}</p>
+  <p>Location: {{ event.location }}</p>
+
+  {% if user.is_authenticated and event.organizer == user %}
+  <div class="button-row">
+    <a href="{% url 'event_update' event.id %}" class="btn">Edit</a>
+    <a href="{% url 'event_delete' event.id %}" class="btn">Delete</a>
+  </div>
+  {% endif %}
+
+
+  {% if user.is_authenticated %}
+  <a href="{% url 'google_calendar_init_event' event.id %}" class="btn">Sync to Google Calendar</a>
+  {% endif %}
+</div>
+{% endblock %}
