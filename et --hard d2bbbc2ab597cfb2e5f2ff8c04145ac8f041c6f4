@@ -1,9 +1,0 @@
-[33m4fc5c8831631f4890bd93dc5c6ab4f998d95833b[m Clean up .gitignore and finalize CSS path cleanup
-[33md2bbbc2ab597cfb2e5f2ff8c04145ac8f041c6f4[m Update styles.css notification image upload, image upload error
-[33m4a3cb65f973fd893073a2677cebc0dfbf1225a6e[m[33m ([m[1;33mtag: [m[1;33mv1.1[m[33m)[m Add remaining accounts app files: admin, apps, signals, tests, init
-[33m1edfc316f5b288c7c7416beb8a1089fe295877a6[m Protect upload_background view with @login_required
-[33ma3e18e6f0e5f1bfe2ef248678077e336ea9aa262[m Add upload_background route to accounts app
-[33mbeae840f9a3a10e60da4c1c03f737c4d2623d575[m Display Django messages for upload success/failure
-[33me52cc4585f005cd7f8c98f4177b1bf746aed7119[m Implement upload_background view with validation and messages
-[33mb28f8f98bd8eab927bef51b5da5b6a197caf6ba3[m Update Profile model to auto-resize background image using PIL
-[33m0472813cf01f2714d7ef0c946cdeb35f4991a55a[m Add BackgroundUploadForm for user background image upload
