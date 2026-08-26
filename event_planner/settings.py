@@ -26,10 +26,9 @@ SECRET_KEY = get_env_variable("DJANGO_SECRET_KEY")
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "event-plan.herokuapp.com",
-    "event-plan-10650f39d687.herokuapp.com",
+    "event-planner-live-619e438f027c.herokuapp.com",
     "localhost",
-    "127.0.0.1"
+    "127.0.0.1",
 ]
 
 # Installed apps
@@ -132,8 +131,7 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SAMESITE = "None"
 CSRF_COOKIE_SECURE = True
 CSRF_TRUSTED_ORIGINS = [
-    "https://event-plan.herokuapp.com",
-    "https://event-plan-10650f39d687.herokuapp.com",
+    "https://event-planner-live-619e438f027c.herokuapp.com",
 ]
 
 # Default primary key field
