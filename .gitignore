@@ -29,10 +29,6 @@ ENV/
 htmlcov/
 .coverage.*
 
-# Migrations (optional, keep if working in team)
-**/migrations/*.py
-!**/migrations/__init__.py
-
 # Media files (user uploads)
 media/
 user_backgrounds/
